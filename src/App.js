@@ -1,25 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
+import  {Header}  from './Header';
+import { Body } from './Body';
+import { Footer } from './Footer';
+import { useState } from 'react';
 function App() {
+  const [notes,setNotes] = useState([
+    {
+      id: 1,
+      text: "text",
+      check: true
+    },
+    {
+      id: 2,
+      text: "text2",
+      check: true
+    },
+    {
+      id: 3,
+      text: "text3",
+      check: false
+    },
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="App mt-6">
+      <Header />
+      <Body notes={notes} setNotes={setNotes}/>
+      
+      
+      <Footer setNotes={setNotes} notes={notes}/>
     </div>
   );
 }
 
 export default App;
+ 
